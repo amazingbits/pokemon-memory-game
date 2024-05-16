@@ -1,0 +1,149 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  border: none;
+  font-family: 'Poppins', sans-serif;
+}
+
+html {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background-image: url('../img/bg.jpg');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.overlayer {
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  position: fixed;
+  background-color: rgba(0, 0, 0, 0.4);
+  pointer-events: none;
+  z-index: -1;
+}
+
+.wrapper {
+  width: 90%;
+  max-width: 600px;
+  margin: 5% auto;
+}
+
+.wrapper .title {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding-bottom: 4px;
+  margin-bottom: 16px;
+  border-bottom: 4px solid #fff;
+}
+
+.wrapper .title h1 {
+  font-size: 1.5rem;
+  color: #fff;
+}
+
+.wrapper .title img {
+  max-width: 50px;
+}
+
+.game-board {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+  align-items: center;
+  text-align: center;
+}
+
+.game-card {
+  aspect-ratio: 1/1;
+  width: 100%;
+  max-height: 120px;
+  background-color: #ccc;
+  position: relative;
+  transform-style: preserve-3d;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 500ms ease;
+}
+
+.game-card:hover .card-face {
+  filter: brightness(85%);
+}
+
+.card-face {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  background-color: black;
+  transition: all 500ms ease;
+  border-radius: 10px;
+}
+
+.card-face img {
+  max-width: 40%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+@media screen and (max-width: 440px) {
+  .card-face img {
+    max-width: 70%;
+  }
+}
+
+.card-front {
+  background-color: #fff;
+  transform: rotateY(180deg);
+}
+
+.card-back {
+  background-color: #e3deac;
+  backface-visibility: hidden;
+}
+
+.show-card {
+  transform: rotateY(180deg);
+}
+
+.disable-card {
+  filter: saturate(0);
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.start-game {
+  position: fixed;
+  bottom: 25px;
+  left: 25px;
+  background-color: #479ffc;
+  color: #fff;
+  text-decoration: none;
+  padding: 12px 22px;
+  border-radius: 15px;
+  font-weight: 700;
+  transition: all 0.3s linear;
+}
+
+.start-game:hover {
+  filter: brightness(90%);
+}
+
+.timer {
+  position: fixed;
+  bottom: 25px;
+  right: 25px;
+  color: #fff;
+  font-size: 1.8rem;
+  font-weight: 700;
+}
